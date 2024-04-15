@@ -39,7 +39,7 @@ LIB = ar rcs
 
 LIB_SYS = -lm -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
 
-SRCS = 
+SRCS = src/cub3d.c src/parser.c src/free.c
 
 OBJS = $(SRCS:.c=.o)
 
