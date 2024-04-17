@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:09:56 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/17 16:32:44 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:45:32 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	save_map(t_data *d)
 	d->map = ft_split(map_join, '\n');
 	if (!d->map)
 		return (free(map_join), 1);
+	//Chuquear al mapa
 	return (free(map_join), 0);
 }
