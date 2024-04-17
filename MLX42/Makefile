@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anttorre <anttorre@student.42malaga.com    +#+  +:+       +#+         #
+#    By: anttorre <atormora@gmail.com>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/26 21:32:49 by W2Wizard          #+#    #+#              #
-#    Updated: 2023/07/06 13:15:13 by anttorre         ###   ########.fr        #
+#    Updated: 2024/04/17 14:47:46 by anttorre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

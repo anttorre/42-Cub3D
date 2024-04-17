@@ -19,7 +19,7 @@ NAME = cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra
 
 MLX_PATH = ./MLX42
 
@@ -39,7 +39,7 @@ LIB = ar rcs
 
 LIB_SYS = -lm -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
 
-SRCS = src/cub3d.c src/parser.c src/free.c
+SRCS = src/cub3d.c src/parser.c src/parser_2.c src/free.c src/errors.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -50,7 +50,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME) :	$(OBJS) $(LIBFT) $(MLX)
 			@echo "$(MAGENTA)$(BOLD)Compiling Cub3D...$(RESET)"
 			@$(LIB) $(LIB_NAME) $(OBJS)
-			@$(CC) $(CFLAGS) $(LIB_NAME) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
+			$(CC) $(CFLAGS) $(LIB_NAME) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
 			@echo "$(CYAN)$(BOLD)Done$(RESET)"
 
 $(OBJS):	src/%.o : src/%.c 

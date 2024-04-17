@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/15 18:04:27 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:38:52 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# define WIDTH 1900
-# define HEIGHT 1000
-# define TILE_SIZE 30
-# define FOV 60
-# define ROTATION_SPEED 0.025
-# define PLAYER_SPEED 2
+# define WIDTH			1900
+# define HEIGHT			1000
+# define TILE_SIZE		30
+# define FOV			60
+# define ROTATION_SPEED	0.025
+# define PLAYER_SPEED	2
+
+/* ERROR CODES */
+# define MTC	1	//Textures and colors not found
+# define ME		2	//Map Empty
+# define F		3	//File not found
+# define EA		4	//Wrong extension or Arguments
+# define DUP	5	//Duplicated Textures / Colors
+# define IMG	6	//Can't load image
+# define RGB	7	//Wrong RGB's
 
 typedef struct s_player
 {
@@ -47,7 +56,7 @@ typedef struct s_ray
 
 typedef struct s_data //the data structure
 {
-	char			**map2d;// the map
+	char			**map;// the map
 	int				p_x;// player x position in the map
 	int				p_y;// player y position in the map
 	int				w_map;// map width
@@ -57,6 +66,9 @@ typedef struct s_data //the data structure
 	int				count_textures;
 	int				i;
 	int				j;
+	int				k;
+	char			**f_rgb;
+	char			**c_rgb;
 	mlx_texture_t	*no;
 	mlx_texture_t	*so;
 	mlx_texture_t	*we;
@@ -67,8 +79,16 @@ typedef struct s_data //the data structure
 	t_player		*ply;// the player structure
 }	t_data;
 
+/* ERROR_MESSAGES.C */
+int		error(int n);
+
+/* PARSER.C */
 int		check_extension(char *file);
 int		parser(t_data *d, char *map_file);
-void	free_bidimensional_array(char ***s);
+int		save_map(t_data *d);
+
+/* FREE.C */
+void	free_b_arr(char ***s);
+void	free_all(t_data *d);
 
 #endif
