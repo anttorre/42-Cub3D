@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:47:08 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/23 15:17:39 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:23:14 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ int	error(int n)
 	else if (n == MILF)
 		printf("Error\nInvalid map format\n");
 	else if (n == ELEM)
-		printf("Error\nElementos del mapa incorrectos\n");
+		printf("Error\nMap elements incorrect\n");
+	else if (n == SP)
+		printf("Error\nOnly spaces in first line\n");
+	else if (n == WALLS)
+		printf("Error\nMap not surrounded by walls\n");
+	else if (n == HV)
+		printf("Error\nMap H/V incorrect element\n");
 	return (1);
 }

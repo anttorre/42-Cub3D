@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 12:21:19 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:21:49 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@
 # define RGB	7	//Wrong RGB's
 # define MILF	8	// Mapé incorrecté le formaté
 # define ELEM	9	//Elementos del mapa incorrectos
+# define SP		10	//Espacios en la linea 1
+# define WALLS	11	//Faltan paredes o no esta cerrado por paredes
+# define HV		12	//Map H/V incorrect element
 
 typedef struct s_player
 {

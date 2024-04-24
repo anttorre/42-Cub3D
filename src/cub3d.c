@@ -6,13 +6,19 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:35:02 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/23 15:24:01 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:08:31 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	ft_leaks()
+/* IMPRIMIR MAPA
+	int i = -1;
+	while (d->map[++i])
+		printf("%s\n", d->map[i]);
+*/
+
+void	ft_leaks(void)
 {
 	system("leaks -q cub3D");
 }

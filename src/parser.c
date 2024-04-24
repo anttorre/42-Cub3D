@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:29:43 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 11:47:41 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:07:42 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_t_c(t_data *d, char **text)
 		d->line = get_next_line(d->fd);
 	}
 	if (d->count_textures != 6)
-		return (free(*text),free(d->line), error(MTC));
+		return (free(*text), free(d->line), error(MTC));
 	if (save_map(d))
 		return (free(*text), 1);
 	return (close(d->fd), 0);
@@ -69,7 +69,7 @@ int	check_colors(t_data *d, char *tc, char *split_text)
 	comas = 0;
 	while (tc && tc[++d->k])
 		if (tc[d->k] == ',')
-			comas++;	
+			comas++;
 	rgb = ft_split(tc, ',');
 	d->k = -1;
 	while (rgb && rgb[++d->k])

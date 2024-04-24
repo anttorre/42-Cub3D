@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:09:56 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 13:00:22 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:08:40 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	save_map(t_data *d)
 		if (!map_join)
 			return (1);
 		if (d->line[0] == '\n')
-			return (free(map_join),free(d->line), error(MILF));
+			return (free(map_join), free(d->line), error(MILF));
 		free(d->line);
 		d->line = get_next_line(d->fd);
 	}
@@ -33,9 +33,6 @@ int	save_map(t_data *d)
 		d->map = ft_split(map_join, '\n');
 		if (!d->map)
 			return (free(map_join), 1);
-		/* int i = -1;
-		while (d->map[++i])
-			printf("%s\n", d->map[i]); */
 		if (check_map(d))
 			return (free(map_join), 1);
 	}
