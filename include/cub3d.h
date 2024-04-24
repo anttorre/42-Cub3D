@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/17 16:38:52 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:21:19 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 # define DUP	5	//Duplicated Textures / Colors
 # define IMG	6	//Can't load image
 # define RGB	7	//Wrong RGB's
+# define MILF	8	// Mapé incorrecté le formaté
+# define ELEM	9	//Elementos del mapa incorrectos
 
 typedef struct s_player
 {
@@ -62,6 +64,8 @@ typedef struct s_data //the data structure
 	int				w_map;// map width
 	int				h_map;// map height
 	int				fd;
+	int				c_pos; //Contador de los elementos del mapa
+	char			orientation; // Caracter de la orientacion del personaje
 	char			*line;
 	int				count_textures;
 	int				i;
@@ -86,6 +90,9 @@ int		error(int n);
 int		check_extension(char *file);
 int		parser(t_data *d, char *map_file);
 int		save_map(t_data *d);
+
+/* CHECK_MAP.C */
+int		check_map(t_data *d);
 
 /* FREE.C */
 void	free_b_arr(char ***s);

@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:35:02 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/17 16:39:04 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:24:01 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	init_data(t_data *d)
 	d->p_y = 0;
 	d->ply = NULL;
 	d->ray = NULL;
+	d->c_pos = 0;
 }
 
 int	check_extension(char *file)

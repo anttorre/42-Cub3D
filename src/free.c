@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:03:53 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/17 16:34:54 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:00:03 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,6 @@ void	free_all(t_data *d)
 		}
 		free(d->map);
 		d->map = NULL;
-	}
-	if (d->line)
-	{
-		free(d->line);
-		d->line = NULL;
 	}
 	if (d->f_rgb)
 	{

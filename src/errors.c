@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_messages.c                                   :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:47:08 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/17 13:04:40 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:17:39 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ int	error(int n)
 		printf("Error\nCan't load images\n");
 	else if (n == RGB)
 		printf("Error\nInvalid RGB\n");
+	else if (n == MILF)
+		printf("Error\nInvalid map format\n");
+	else if (n == ELEM)
+		printf("Error\nElementos del mapa incorrectos\n");
 	return (1);
 }

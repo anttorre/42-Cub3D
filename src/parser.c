@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:29:43 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/17 16:40:03 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:47:41 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_t_c(t_data *d, char **text)
 		d->line = get_next_line(d->fd);
 	}
 	if (d->count_textures != 6)
-		return (free(*text), 1);
+		return (free(*text),free(d->line), error(MTC));
 	if (save_map(d))
 		return (free(*text), 1);
 	return (close(d->fd), 0);
@@ -130,7 +130,7 @@ int	parser(t_data *d, char *map_file)
 	if (!d->line)
 		return (error(ME));
 	if (check_t_c(d, &text))
-		return (error(MTC));
+		return (1);
 	if (save_t_c(d, text))
 		return (1);
 	if (!d->no || !d->so || !d->we || !d->ea)
