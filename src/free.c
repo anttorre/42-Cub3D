@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:03:53 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 13:17:26 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:56:16 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ void	free_all_2(t_data *d)
 		mlx_delete_texture(d->we);
 	if (d->ea)
 		mlx_delete_texture(d->ea);
+	if (d->ply)
+		free(d->ply);
+	if (d->ray)
+		free(d->ray);
 }
 
 void	free_all(t_data *d)

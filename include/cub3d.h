@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 17:21:49 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:16:34 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# define WIDTH			1900
-# define HEIGHT			1000
+# define WIDTH			2500
+# define HEIGHT			1300
 # define TILE_SIZE		30
 # define FOV			60
 # define ROTATION_SPEED	0.025
@@ -40,6 +40,7 @@
 # define SP		10	//Espacios en la linea 1
 # define WALLS	11	//Faltan paredes o no esta cerrado por paredes
 # define HV		12	//Map H/V incorrect element
+# define LIMITS	13	// Height Width FOV out of limits
 
 typedef struct s_player
 {
@@ -74,6 +75,7 @@ typedef struct s_data //the data structure
 	int				i;
 	int				j;
 	int				k;
+	char			c;
 	char			**f_rgb;
 	char			**c_rgb;
 	mlx_texture_t	*no;
@@ -100,5 +102,7 @@ int		check_map(t_data *d);
 /* FREE.C */
 void	free_b_arr(char ***s);
 void	free_all(t_data *d);
+
+int		start_game(t_data *d);
 
 #endif

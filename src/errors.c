@@ -6,11 +6,18 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:47:08 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 17:23:14 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:18:23 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+int	error_2(int n)
+{
+	if (n == LIMITS)
+		printf("Error\nHeight/Width/FOV out of limits\n");
+	return (1);
+}
 
 int	error(int n)
 {
@@ -38,5 +45,5 @@ int	error(int n)
 		printf("Error\nMap not surrounded by walls\n");
 	else if (n == HV)
 		printf("Error\nMap H/V incorrect element\n");
-	return (1);
+	return (error_2(n));
 }

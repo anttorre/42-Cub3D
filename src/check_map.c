@@ -6,11 +6,38 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 13:06:12 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 17:21:21 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:17:04 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+int	save_map(t_data *d)
+{
+	char	*map_join;
+
+	map_join = NULL;
+	while (d->line)
+	{
+		map_join = ft_strjoin_gnl(map_join, d->line);
+		if (!map_join)
+			return (1);
+		if (d->line[0] == '\n')
+			return (free(map_join), free(d->line), error(MILF));
+		free(d->line);
+		d->line = get_next_line(d->fd);
+	}
+	close(d->fd);
+	if (map_join)
+	{
+		d->map = ft_split(map_join, '\n');
+		if (!d->map)
+			return (free(map_join), 1);
+		if (check_map(d))
+			return (free(map_join), 1);
+	}
+	return (free(map_join), 0);
+}
 
 int	check_only_spaces_fl(t_data *d)
 {
@@ -84,8 +111,6 @@ int	fix_map(t_data *d)
 
 int	check_map(t_data *d)
 {
-	char	c;
-
 	if (check_only_spaces_fl(d) || check_elements_map(d) || fix_map(d))
 		return (1);
 	d->i = -1;
@@ -94,18 +119,20 @@ int	check_map(t_data *d)
 		d->j = -1;
 		while (d->map[d->i][++d->j])
 		{
-			c = d->map[d->i][d->j];
-			if ((d->i == 0 || d->i == d->h_map) \
-			&& d->map[d->i][d->j] != ' ' && d->map[d->i][d->j] != '1')
+			d->c = d->map[d->i][d->j];
+			if (((d->i == 0 || d->i == d->h_map) || (d->j == 0 \
+			|| d->j == d->w_map)) && d->c != ' ' && d->c != '1')
 				return (error(WALLS));
-			if ((d->j == 0 || d->j == d->w_map) \
-			&& d->map[d->i][d->j] != ' ' && d->map[d->i][d->j] != '1')
-				return (error(WALLS));
-			if (d->i != 0 && d->i != d->h_map && (c == '0' \
-			|| c == 'N' || c == 'S' || c == 'E' || c == 'W') \
+			if (d->i != 0 && d->i != d->h_map && (d->c == '0' \
+			|| d->c == 'N' || d->c == 'S' || d->c == 'E' || d->c == 'W') \
 			&& ((d->map[d->i][d->j - 1] == 32 || d->map[d->i][d->j + 1] == 32) \
 			|| (d->map[d->i - 1][d->j] == 32 || d->map[d->i + 1][d->j] == 32)))
 				return (error(HV));
+			if (d->c == 'N' || d->c == 'S' || d->c == 'E' || d->c == 'W')
+			{
+				d->p_x = d->j;
+				d->p_y = d->i;
+			}
 		}
 	}
 	return (0);

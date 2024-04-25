@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:35:02 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 13:08:31 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:01:10 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ int	main(int argc, char **argv)
 		return (error(EA));
 	init_data(&data);
 	if (parser(&data, argv[1]))
+		return (free_all(&data), 1);
+	int i = -1;
+	while (data.map[++i])
+		printf("%s\n", data.map[i]);
+	if (start_game(&data))
 		return (free_all(&data), 1);
 	return (free_all(&data), 0);
 }
