@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/25 17:16:34 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:26:18 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_player
 
 typedef struct s_ray
 {
-	double	ray_ngl;// ray angle
+	double	ray_angle;// ray angle
 	double	distance;// distance to the wall
 	int		flag;// flag for the wall
 }	t_ray;
@@ -104,5 +104,11 @@ void	free_b_arr(char ***s);
 void	free_all(t_data *d);
 
 int		start_game(t_data *d);
+
+void	draw_map(void *data);
+
+void	keypress(mlx_key_data_t key, void *data);
+
+void	close_game(void *data);
 
 #endif

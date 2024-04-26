@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:03:53 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/25 15:56:16 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:52:54 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	free_all_2(t_data *d)
 {
 	int	i;
 
+	i = -1;
 	if (d->c_rgb)
 	{
-		i = -1;
 		while (d->c_rgb[++i])
 		{
 			free(d->c_rgb[i]);
@@ -61,7 +61,7 @@ void	free_all_2(t_data *d)
 void	free_all(t_data *d)
 {
 	int	i;
-
+	
 	i = -1;
 	if (d->map)
 	{
@@ -73,9 +73,9 @@ void	free_all(t_data *d)
 		free(d->map);
 		d->map = NULL;
 	}
+	i = -1;
 	if (d->f_rgb)
 	{
-		i = -1;
 		while (d->f_rgb[++i])
 		{
 			free(d->f_rgb[i]);
@@ -85,4 +85,17 @@ void	free_all(t_data *d)
 		d->f_rgb = NULL;
 	}
 	free_all_2(d);
+}
+
+void	close_game(void *data)
+{
+	t_data	*d;
+
+	d = data;
+	mlx_delete_image(d->mlx, d->img);
+ 	mlx_close_window(d->mlx);	
+
+	free_all(d);
+	mlx_terminate(d->mlx); 
+	exit(0);
 }

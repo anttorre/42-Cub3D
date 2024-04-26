@@ -39,7 +39,14 @@ LIB = ar rcs
 
 LIB_SYS = -lm -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
 
-SRCS = src/cub3d.c src/parser.c src/free.c src/errors.c src/check_map.c src/game.c
+SRCS = 	src/cub3d.c \
+		src/parser.c \
+		src/free.c \
+		src/errors.c \
+		src/check_map.c \
+		src/game.c \
+		src/draw_map.c \
+		src/keypress.c
 
 OBJS = $(SRCS:.c=.o)
 
