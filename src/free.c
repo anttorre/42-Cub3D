@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:03:53 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/26 15:52:54 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/02 13:36:40 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	free_all_2(t_data *d)
 		mlx_delete_texture(d->we);
 	if (d->ea)
 		mlx_delete_texture(d->ea);
-	if (d->ply)
-		free(d->ply);
+	if (d->player)
+		free(d->player);
 	if (d->ray)
 		free(d->ray);
 }
@@ -61,7 +61,7 @@ void	free_all_2(t_data *d)
 void	free_all(t_data *d)
 {
 	int	i;
-	
+
 	i = -1;
 	if (d->map)
 	{
@@ -93,9 +93,8 @@ void	close_game(void *data)
 
 	d = data;
 	mlx_delete_image(d->mlx, d->img);
- 	mlx_close_window(d->mlx);	
-
+	mlx_close_window(d->mlx);
 	free_all(d);
-	mlx_terminate(d->mlx); 
+	mlx_terminate(d->mlx);
 	exit(0);
 }

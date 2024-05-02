@@ -45,8 +45,10 @@ SRCS = 	src/cub3d.c \
 		src/errors.c \
 		src/check_map.c \
 		src/game.c \
-		src/draw_map.c \
-		src/keypress.c
+		src/start_map.c \
+		src/keypress.c \
+		src/raycast.c \
+		src/rendering.c
 
 OBJS = $(SRCS:.c=.o)
 

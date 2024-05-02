@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/26 15:26:18 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/02 16:24:42 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@
 
 typedef struct s_player
 {
-	int		plyr_x;// player x position in pixels
-	int		plyr_y;// player y position in pixels
+	int		x;// player x position in pixels
+	int		y;// player y position in pixels
 	double	angle;// player angle
 	float	fov_rd;// field of view in radians
 	int		rot;// rotation flag
@@ -55,8 +55,13 @@ typedef struct s_player
 
 typedef struct s_ray
 {
+	int		index;
 	double	ray_angle;// ray angle
 	double	distance;// distance to the wall
+	double	horiz_x;
+	double	horiz_y;
+	double	vert_x;
+	double	vert_y;
 	int		flag;// flag for the wall
 }	t_ray;
 
@@ -85,7 +90,7 @@ typedef struct s_data //the data structure
 	mlx_image_t		*img; // the image
 	mlx_t			*mlx;// the mlx pointer
 	t_ray			*ray;// the ray structure
-	t_player		*ply;// the player structure
+	t_player		*player;// the player structure
 }	t_data;
 
 /* ERROR_MESSAGES.C */
@@ -105,9 +110,19 @@ void	free_all(t_data *d);
 
 int		start_game(t_data *d);
 
-void	draw_map(void *data);
+void	start_map(void *data);
 
 void	keypress(mlx_key_data_t key, void *data);
+
+void	rot_l_r_player(t_data *d, double move_x, double move_y);
+
+int		wall_hit(float x, float y, t_data *d);
+
+float	correct_angle(float angle);
+
+int		unit_circle(float angle, char c);
+
+void	raycasting(t_data *d);
 
 void	close_game(void *data);
 
