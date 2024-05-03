@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:35:02 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/25 15:01:10 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:17:51 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 		printf("%s\n", d->map[i]);
 */
 
+/* FUNCION PARA LEAKS
 void	ft_leaks(void)
 {
 	system("leaks -q cub3D");
 }
+*/
 
-void	init_data(t_data *d)
+static void	init_data(t_data *d)
 {
 	d->c_rgb = NULL;
 	d->f_rgb = NULL;
@@ -44,12 +46,12 @@ void	init_data(t_data *d)
 	d->mlx = NULL;
 	d->p_x = 0;
 	d->p_y = 0;
-	d->ply = NULL;
+	d->player = NULL;
 	d->ray = NULL;
 	d->c_pos = 0;
 }
 
-int	check_extension(char *file)
+static int	check_extension(char *file)
 {
 	int	i;
 
@@ -64,15 +66,11 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	atexit(ft_leaks);
 	if (argc != 2 || !check_extension(argv[1]))
 		return (error(EA));
 	init_data(&data);
 	if (parser(&data, argv[1]))
 		return (free_all(&data), 1);
-	int i = -1;
-	while (data.map[++i])
-		printf("%s\n", data.map[i]);
 	if (start_game(&data))
 		return (free_all(&data), 1);
 	return (free_all(&data), 0);

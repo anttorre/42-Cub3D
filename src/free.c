@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:03:53 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/02 13:36:40 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:21:02 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_b_arr(char ***s)
 	}
 }
 
-void	free_all_2(t_data *d)
+static void	free_all_2(t_data *d)
 {
 	int	i;
 

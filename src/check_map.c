@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 13:06:12 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/25 17:17:04 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:56:18 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	save_map(t_data *d)
 	return (free(map_join), 0);
 }
 
-int	check_only_spaces_fl(t_data *d)
+static int	check_only_spaces_fl(t_data *d)
 {
 	d->i = -1;
 	while (d->map && d->map[++d->i])
@@ -54,7 +54,7 @@ int	check_only_spaces_fl(t_data *d)
 	return (0);
 }
 
-int	check_elements_map(t_data *d)
+static int	check_elements_map(t_data *d)
 {
 	char	c;
 
@@ -80,7 +80,7 @@ int	check_elements_map(t_data *d)
 	return (0);
 }
 
-int	fix_map(t_data *d)
+static	int	fix_map(t_data *d)
 {
 	size_t	max_l;
 	char	*new_ln;

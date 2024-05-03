@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:02:16 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/02 13:05:24 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:49:53 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ float	correct_angle(float angle)
 	return (angle);
 }
 
-void	get_player_angle(t_data *d)
+static void	get_player_angle(t_data *d)
 {
 	char	player_orientation;
 
@@ -71,5 +71,3 @@ int	start_game(t_data *d)
 	mlx_loop(d->mlx);
 	return (0);
 }
-
-

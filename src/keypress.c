@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:19:14 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/02 12:41:14 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:55:26 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,22 +77,22 @@ void	rot_l_r_player(t_data *d, double move_x, double move_y)
 	player_move(d, move_x, move_y);
 }
 
-void	keypress_2(mlx_key_data_t key, void *data)
+static void	keypress_2(mlx_key_data_t key, void *data)
 {
 	t_data	*d;
 
 	d = data;
-	if (key.key == MLX_KEY_A && key.action == MLX_PRESS)
+	if (key.key == MLX_KEY_A && key.action == MLX_RELEASE)
 		d->player->l_r = 0;
-	else if (key.key == MLX_KEY_D && key.action == MLX_PRESS)
+	else if (key.key == MLX_KEY_D && key.action == MLX_RELEASE)
 		d->player->l_r = 0;
-	else if (key.key == MLX_KEY_W && key.action == MLX_PRESS)
+	else if (key.key == MLX_KEY_W && key.action == MLX_RELEASE)
 		d->player->u_d = 0;
-	else if (key.key == MLX_KEY_S && key.action == MLX_PRESS)
+	else if (key.key == MLX_KEY_S && key.action == MLX_RELEASE)
 		d->player->u_d = 0;
-	else if (key.key == MLX_KEY_LEFT && key.action == MLX_PRESS)
+	else if (key.key == MLX_KEY_LEFT && key.action == MLX_RELEASE)
 		d->player->rot = 0;
-	else if (key.key == MLX_KEY_RIGHT && key.action == MLX_PRESS)
+	else if (key.key == MLX_KEY_RIGHT && key.action == MLX_RELEASE)
 		d->player->rot = 0;
 }
 
@@ -109,11 +109,12 @@ void	keypress(mlx_key_data_t key, void *data)
 	else if (key.key == MLX_KEY_D && key.action == MLX_PRESS)
 		d->player->l_r = 1;
 	else if (key.key == MLX_KEY_W && key.action == MLX_PRESS)
-		d->player->u_d = -1;
-	else if (key.key == MLX_KEY_S && key.action == MLX_PRESS)
 		d->player->u_d = 1;
+	else if (key.key == MLX_KEY_S && key.action == MLX_PRESS)
+		d->player->u_d = -1;
 	else if (key.key == MLX_KEY_LEFT && key.action == MLX_PRESS)
 		d->player->rot = -1;
 	else if (key.key == MLX_KEY_RIGHT && key.action == MLX_PRESS)
 		d->player->rot = 1;
+	keypress_2(key, data);
 }

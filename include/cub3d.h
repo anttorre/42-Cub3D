@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/02 16:24:42 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:56:21 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,37 +93,46 @@ typedef struct s_data //the data structure
 	t_player		*player;// the player structure
 }	t_data;
 
+/* CHECK_MAP.C */
+int		check_map(t_data *d);
+int		save_map(t_data *d);
+
 /* ERROR_MESSAGES.C */
 int		error(int n);
 
 /* PARSER.C */
 int		check_extension(char *file);
 int		parser(t_data *d, char *map_file);
-int		save_map(t_data *d);
-
-/* CHECK_MAP.C */
-int		check_map(t_data *d);
 
 /* FREE.C */
-void	free_b_arr(char ***s);
+void	close_game(void *data);
 void	free_all(t_data *d);
+void	free_b_arr(char ***s);
 
+/* GAME.C */
 int		start_game(t_data *d);
+float	correct_angle(float angle);
+int		wall_hit(float x, float y, t_data *d);
+
+/* KEYPRESS.C */
+void	keypress(mlx_key_data_t key, void *data);
+void	rot_l_r_player(t_data *d, double move_x, double move_y);
 
 void	start_map(void *data);
 
-void	keypress(mlx_key_data_t key, void *data);
-
-void	rot_l_r_player(t_data *d, double move_x, double move_y);
-
-int		wall_hit(float x, float y, t_data *d);
-
-float	correct_angle(float angle);
 
 int		unit_circle(float angle, char c);
 
+void	put_pixel(t_data *d, int x, int y, int color);
+
+void	rendering_game(t_data *d, int ray);
+
+int		get_rgba(int r, int g, int b, int a);
+
+int		reverse_bytes(int c);
+
 void	raycasting(t_data *d);
 
-void	close_game(void *data);
+void	put_pixel(t_data *d, int x, int y, int color);
 
 #endif

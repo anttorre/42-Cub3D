@@ -39,16 +39,16 @@ LIB = ar rcs
 
 LIB_SYS = -lm -Iinclude -lglfw -L "/Users/anttorre/.brew/opt/glfw/lib/"
 
-SRCS = 	src/cub3d.c \
-		src/parser.c \
-		src/free.c \
+SRCS = 	src/check_map.c \
+		src/cub3d.c \
 		src/errors.c \
-		src/check_map.c \
+		src/free.c \
 		src/game.c \
-		src/start_map.c \
 		src/keypress.c \
+		src/parser.c \
 		src/raycast.c \
-		src/rendering.c
+		src/rendering.c \
+		src/start_map.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -60,7 +60,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME) :	$(OBJS) $(LIBFT) $(MLX)
 			@echo "$(MAGENTA)$(BOLD)Compiling Cub3D...$(RESET)"
 			@$(LIB) $(LIB_NAME) $(OBJS)
-			$(CC) $(CFLAGS) $(LIB_NAME) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
+			@$(CC) $(CFLAGS) $(LIB_NAME) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
 			@echo "$(CYAN)$(BOLD)Done$(RESET)"
 
 $(OBJS):	src/%.o : src/%.c 
