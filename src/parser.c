@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
+/*   By: antferna <antferna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:29:43 by anttorre          #+#    #+#             */
-/*   Updated: 2024/04/24 13:07:42 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:44:38 by antferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,7 @@ int	parser(t_data *d, char *map_file)
 		return (1);
 	if (!d->no || !d->so || !d->we || !d->ea)
 		return (free(d->line), error(IMG));
+	if (!d->c_rgb || !d->f_rgb)
+		return (free(d->line), error(RGB));
 	return (0);
 }
