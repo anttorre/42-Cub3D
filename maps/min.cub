@@ -1,18 +1,12 @@
-NO textures/Mona_Lisa.png
-SO textures/Wheat_Field.png
-WE textures/the_starry_night.png
-EA textures/girl_with_a_pearl_earring.png
+NO textures/bicho.png
+SO textures/henry.png
+WE textures/momoa.png
+EA textures/mou.png
 
 C 0,0,255
 F 60,179,255
 
-  
-
-
-
-
-
-1111100   
+1111111  
  110000111
 100S1111  
 1111      

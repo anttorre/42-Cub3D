@@ -6,13 +6,13 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 12:58:37 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/02 13:35:02 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:48:18 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	inter_check(float angle, float *inter, float *step, int is_horizon)
+static int	inter_check(float angle, float *inter, float *step, int is_horizon)
 {
 	if (is_horizon)
 	{
@@ -35,7 +35,7 @@ int	inter_check(float angle, float *inter, float *step, int is_horizon)
 	return (1);
 }
 
-float	horizontal(t_data *d, float angle)
+static float	horizontal(t_data *d, float angle)
 {
 	float	h_x;
 	float	h_y;
@@ -61,7 +61,7 @@ float	horizontal(t_data *d, float angle)
 	return (sqrt(pow(h_x - d->player->x, 2) + pow(h_y - d->player->y, 2)));
 }
 
-float	vertical(t_data *d, float angle)
+static float	vertical(t_data *d, float angle)
 {
 	float	v_x;
 	float	v_y;

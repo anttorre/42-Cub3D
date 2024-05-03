@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/03 13:56:21 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:54:57 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ int		save_map(t_data *d);
 int		error(int n);
 
 /* PARSER.C */
-int		check_extension(char *file);
 int		parser(t_data *d, char *map_file);
 
 /* FREE.C */
@@ -118,21 +117,17 @@ int		wall_hit(float x, float y, t_data *d);
 void	keypress(mlx_key_data_t key, void *data);
 void	rot_l_r_player(t_data *d, double move_x, double move_y);
 
-void	start_map(void *data);
-
-
-int		unit_circle(float angle, char c);
-
-void	put_pixel(t_data *d, int x, int y, int color);
-
-void	rendering_game(t_data *d, int ray);
-
-int		get_rgba(int r, int g, int b, int a);
-
-int		reverse_bytes(int c);
-
+/* RAYCAST.C */
 void	raycasting(t_data *d);
 
+/* RENDERING.C */
+void	rendering_game(t_data *d, int ray);
+
+/* START_MAP.C */
+void	start_map(void *data);
+int		unit_circle(float angle, char c);
 void	put_pixel(t_data *d, int x, int y, int color);
+int		get_rgba(int r, int g, int b, int a);
+int		reverse_bytes(int c);
 
 #endif

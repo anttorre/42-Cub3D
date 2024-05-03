@@ -6,13 +6,13 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:15:51 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/03 12:51:22 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:54:14 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	draw_floor_ceiling(t_data *d, int ray, int t_pix, int b_pix)
+static void	draw_floor_ceiling(t_data *d, int ray, int t_pix, int b_pix)
 {
 	int		i;
 	int		c;
@@ -29,7 +29,7 @@ void	draw_floor_ceiling(t_data *d, int ray, int t_pix, int b_pix)
 		put_pixel(d, ray, i++, c);
 }
 
-mlx_texture_t	*get_texture(t_data *d, int flag)
+static mlx_texture_t	*get_texture(t_data *d, int flag)
 {
 	d->ray->ray_angle = correct_angle(d->ray->ray_angle);
 	if (flag == 0)
@@ -49,7 +49,7 @@ mlx_texture_t	*get_texture(t_data *d, int flag)
 	}
 }
 
-double	get_x_o(mlx_texture_t	*texture, t_data *d)
+static double	get_x_o(mlx_texture_t	*texture, t_data *d)
 {
 	double	x_o;
 
@@ -62,7 +62,7 @@ double	get_x_o(mlx_texture_t	*texture, t_data *d)
 	return (x_o);
 }
 
-void	draw_wall(t_data *d, int t_pix, int b_pix, double wall_h)
+static void	draw_wall(t_data *d, int t_pix, int b_pix, double wall_h)
 {
 	double			x_o;
 	double			y_o;
