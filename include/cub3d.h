@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:37:03 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/03 14:54:57 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:35:46 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# define WIDTH			2500
-# define HEIGHT			1300
+# define WIDTH			2200
+# define HEIGHT			1200
 # define TILE_SIZE		30
 # define FOV			60
 # define ROTATION_SPEED	0.025

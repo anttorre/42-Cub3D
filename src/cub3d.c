@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:35:02 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/06 13:17:18 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/06 13:26:28 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 		printf("%s\n", d->map[i]);
 */
 
-/* FUNCION PARA LEAKS
+/* FUNCION PARA LEAKS */
 void	ft_leaks(void)
 {
 	system("leaks -q cub3D");
 }
-*/
+
 
 static void	init_data(t_data *d)
 {
@@ -66,6 +66,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	atexit(ft_leaks);
 	if (argc != 2 || !check_extension(argv[1]))
 		return (error(EA));
 	init_data(&data);

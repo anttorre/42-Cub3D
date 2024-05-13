@@ -52,28 +52,14 @@ SRCS = 	src/check_map.c \
 
 OBJS = $(SRCS:.c=.o)
 
-#SRCS_BONUS =
-
-#OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-
-#Agregarlo luego $(MLX)
 $(NAME) :	$(OBJS) $(LIBFT) $(MLX)
 			@echo "$(MAGENTA)$(BOLD)Compiling Cub3D...$(RESET)"
 			@$(LIB) $(LIB_NAME) $(OBJS)
-			@$(CC) $(CFLAGS) $(LIB_NAME) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
+			@$(CC) $(CFLAGS) $(LIB_NAME) $(MLX) $(LIBFT) -Iinclude/cub3d.h $(LIB_SYS) -o $(NAME)
 			@echo "$(CYAN)$(BOLD)Done$(RESET)"
 
 $(OBJS):	src/%.o : src/%.c 
 			@$(CC) $(CFLAGS) -c $< -o $@
-
-#$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT) $(MLX)
-#			@echo "$(YELLOW)$(BOLD)Compiling so_long_bonus...$(RESET)"
-#			@$(LIB) $(SO_LONG_BONUS) $(OBJS_BONUS)
-#			@$(CC) $(CFLAGS) $(SO_LONG_BONUS) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME_BONUS)
-#			@echo "$(CYAN)$(BOLD)Done$(RESET)"
-
-#$(OBJS_BONUS):	srcb/%.o : srcb/%.c 
-#			@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 			@make -s -C $(LIBFT_PATH)

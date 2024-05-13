@@ -6,7 +6,7 @@
 /*   By: anttorre <atormora@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:15:51 by anttorre          #+#    #+#             */
-/*   Updated: 2024/05/06 13:20:41 by anttorre         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:35:59 by anttorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static mlx_texture_t	*get_texture(t_data *d, int flag)
 	}
 }
 
-static double	get_x_o(mlx_texture_t	*texture, t_data *d)
+static double	get_x_ray_origin(mlx_texture_t	*texture, t_data *d)
 {
 	double	x_o;
 
@@ -64,8 +64,8 @@ static double	get_x_o(mlx_texture_t	*texture, t_data *d)
 
 static void	draw_wall(t_data *d, int t_pix, int b_pix, double wall_h)
 {
-	double			x_o;
-	double			y_o;
+	double			x_ray_o;
+	double			y_ray_o;
 	mlx_texture_t	*texture;
 	uint32_t		*arr;
 	double			factor;
@@ -73,15 +73,15 @@ static void	draw_wall(t_data *d, int t_pix, int b_pix, double wall_h)
 	texture = get_texture(d, d->ray->flag);
 	arr = (uint32_t *)texture->pixels;
 	factor = (double)texture->height / wall_h;
-	x_o = get_x_o(texture, d);
-	y_o = (t_pix - (HEIGHT / 2) + (wall_h / 2)) * factor;
-	if (y_o < 0)
-		y_o = 0;
+	x_ray_o = get_x_ray_origin(texture, d);
+	y_ray_o = (t_pix - (HEIGHT / 2) + (wall_h / 2)) * factor;
+	if (y_ray_o < 0)
+		y_ray_o = 0;
 	while (t_pix < b_pix)
 	{
 		put_pixel(d, d->ray->index, t_pix, reverse_bytes \
-		(arr[(int)y_o * texture->width + (int)x_o]));
-		y_o += factor;
+		(arr[(int)y_ray_o * texture->width + (int)x_ray_o]));
+		y_ray_o += factor;
 		t_pix++;
 	}
 }
